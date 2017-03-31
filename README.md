@@ -20,7 +20,10 @@ This Java web application allows the user to build manage the stylists and clien
 
 |Behavior|Input|Output|
 |:---:|:---:|:---:|
-||||
+|Application instantiates Stylist class|stylist|true|
+|Application instantiates Stylist class with name|"Abby"|"Abby"|
+|Application instantiates Stylist class with date of hire|08/16/2011|08/16/2011|
+|Application instantiates Stylist class with favorite service|"color"|"color"|
 
 
 ## Known Bugs

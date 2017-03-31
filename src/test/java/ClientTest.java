@@ -68,4 +68,20 @@ public class ClientTest {
     secondClient.save();
     assertEquals(Client.find(secondClient.getId()), secondClient);
   }
+
+  @Test
+  public void update_updatesName_true() {
+    Client newClient = new Client("Tina", 1);
+    newClient.save();
+    newClient.update("Louise");
+    assertEquals("Louise", newClient.find(newClient.getId()).getName());
+  }
+
+  @Test
+  public void delete_deletesClient_true() {
+    Client newClient = new Client("Tina", 1);
+    newClient.save();
+    newClient.delete();
+    assertEquals(null, Client.find(newClient.getId()));
+  }
 }

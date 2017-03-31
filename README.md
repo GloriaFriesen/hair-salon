@@ -24,6 +24,11 @@ This Java web application allows the user to build manage the stylists and clien
 |Application instantiates Stylist class with name|"Abby"|"Abby"|
 |Application instantiates Stylist class with date of hire|08/16/2011|08/16/2011|
 |Application instantiates Stylist class with favorite service|"color"|"color"|
+|Application instantiates Stylist class with an ID|stylist|true|
+|Application saves all Stylists to database|stylist|true|
+|Application finds Stylist in database with it's ID|1|stylist|
+|Application deletes Stylist from database|stylist|null|
+|Application updates Stylist|"Abby"|"Pepper Jack"|
 
 
 ## Known Bugs

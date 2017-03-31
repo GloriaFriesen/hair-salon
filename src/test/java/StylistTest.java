@@ -97,6 +97,13 @@ public class StylistTest {
     assertEquals("Pepper Jack", newStylist.find(newStylist.getId()).getName());
     assertEquals(updatedDate, newStylist.find(newStylist.getId()).getHireDate());
     assertEquals("beard trim", newStylist.find(newStylist.getId()).getFavoriteService());
+  }
 
+  @Test
+  public void delete_deletesStylist_true() throws ParseException {
+    Stylist newStylist = new Stylist("Abby", new SimpleDateFormat("MM/dd/yyyy").parse("08/16/2011"), "color");
+    newStylist.save();
+    newStylist.delete();
+    assertEquals(null, newStylist.find(newStylist.getId()));
   }
 }

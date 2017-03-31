@@ -14,6 +14,25 @@
 
 <a href="/stylists/$stylist.getId()/clients/new"><button type="button" class="btn btn-success">Add Client</button></a>
 
-<form action="/stylists/$stylist.getId()/delete" method="post">
-  <button type="submit" class="btn btn-warning">Remove $stylist.getName()</button>
-</form>
+<div class="well">
+  <h2>Update or Delete $stylist.getName().</h2>
+  <form action="/stylists/$stylist.getId()" method="post">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" value="$stylist.getName()" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="hire_date">Date of Hire</label>
+      <input id="hire_date" type="date" value="$stylist.getHireDate()" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="favorite_service">Favorite Service</label>
+      <input id="favorite_service" type="text" value="$stylist.getFavoriteService()" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Update $stylist.getName()</button>
+  </form>
+
+  <form action="/stylists/$stylist.getId()/delete" method="post">
+    <button type="submit" class="btn btn-warning">Remove $stylist.getName()</button>
+  </form>
+</div>

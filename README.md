@@ -29,6 +29,14 @@ This Java web application allows the user to build manage the stylists and clien
 |Application finds Stylist in database with it's ID|1|stylist|
 |Application deletes Stylist from database|stylist|null|
 |Application updates Stylist|"Abby"|"Pepper Jack"|
+|Application instantiates Client class|client|true|
+|Application instantiates Client class with name|"Tina"|"Tina"|
+|Application instantiates Client class with a Stylist|"Tina"|1|
+|Application instantiates Client class with an ID|client|true|
+|Application saves all Clients to database|client|true|
+|Application finds Client in database with it's ID|1|client|
+|Application deletes Client from database|client|null|
+|Application updates Client|"Tina"|"Louise"|
 
 
 ## Known Bugs

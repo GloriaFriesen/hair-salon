@@ -1,2 +1,12 @@
 <!--client-form.vtl-->
 <h1>Add a client</h1>
+
+<form action="/clients" method="post">
+  <input id="stylist_id" name="stylist_id" type="hidden" value="$stylist.getId()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" class="form-control" required>
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Client</button>
+</form>

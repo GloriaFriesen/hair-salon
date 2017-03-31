@@ -30,7 +30,7 @@ public class App {
     post("/stylists", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
-      Date hire_date = new SimpleDateFormat("MM/dd/yyyy").parse("hireDate");
+      String hire_date = request.queryParams("hireDate");
       String favorite_service = request.queryParams("favoriteService");
       Stylist newStylist = new Stylist(name, hire_date, favorite_service);
       newStylist.save();

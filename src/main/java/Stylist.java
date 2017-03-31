@@ -6,11 +6,11 @@ import java.util.Date;
 
 public class Stylist {
   private String name;
-  private Date hire_date;
+  private String hire_date;
   private String favorite_service;
   private int id;
 
-  public Stylist(String name, Date hire_date, String favorite_service) {
+  public Stylist(String name, String hire_date, String favorite_service) {
     this.name = name;
     this.hire_date = hire_date;
     this.favorite_service = favorite_service;
@@ -20,7 +20,7 @@ public class Stylist {
     return name;
   }
 
-  public Date getHireDate() {
+  public String getHireDate() {
     return hire_date;
   }
 
@@ -74,7 +74,7 @@ public class Stylist {
     }
   }
 
-  public void update(String name, Date hire_date, String favorite_service) {
+  public void update(String name, String hire_date, String favorite_service) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "UPDATE stylists SET name=:name, hire_date=:hire_date, favorite_service=:favorite_service WHERE id=:id";
       con.createQuery(sql)

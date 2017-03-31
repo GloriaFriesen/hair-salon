@@ -1,2 +1,18 @@
 <!--stylist-form.vtl-->
 <h1>Add a stylist</h1>
+
+<form action="/stylists" method="post">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="hireDate">Date of Hire</label>
+    <input id="hireDate" name="hireDate" type="date" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="favoriteService">Favorite Service</label>
+    <input id="favoriteService" name="favoriteService" type="text" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-success">Add Stylist.</button>
+</form>

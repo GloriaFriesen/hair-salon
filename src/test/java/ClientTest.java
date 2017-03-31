@@ -84,4 +84,5 @@ public class ClientTest {
     newClient.delete();
     assertEquals(null, Client.find(newClient.getId()));
   }
+
 }

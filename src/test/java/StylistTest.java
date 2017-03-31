@@ -2,6 +2,7 @@ import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.List;
+import java.util.Arrays;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -93,5 +94,17 @@ public class StylistTest {
     newStylist.save();
     newStylist.delete();
     assertEquals(null, newStylist.find(newStylist.getId()));
+  }
+
+  @Test
+  public void getClients_retrievesAllClientsFromDatabase_clientList() throws ParseException {
+    Stylist newStylist = new Stylist("Abby", new SimpleDateFormat("MM/dd/yyyy").parse("08/16/2011"), "color");
+    newStylist.save();
+    Client firstClient = new Client("Tina", newStylist.getId());
+    firstClient.save();
+    Client secondClient = new Client("Louise", newStylist.getId());
+    secondClient.save();
+    Client[] clients = new Client[] {firstClient, secondClient};
+    assertTrue(newStylist.getClients().containsAll(Arrays.asList(clients)));
   }
 }

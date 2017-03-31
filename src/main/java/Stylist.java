@@ -73,4 +73,16 @@ public class Stylist {
       return stylist;
     }
   }
+
+  public void update(String name, Date hire_date, String favorite_service) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stylists SET name=:name, hire_date=:hire_date, favorite_service=:favorite_service WHERE id=:id";
+      con.createQuery(sql)
+        .addParameter("name", name)
+        .addParameter("hire_date", hire_date)
+        .addParameter("favorite_service", favorite_service)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
 }

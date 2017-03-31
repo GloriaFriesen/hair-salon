@@ -87,4 +87,16 @@ public class StylistTest {
     secondStylist.save();
     assertEquals(Stylist.find(secondStylist.getId()), secondStylist);
   }
+
+  @Test
+  public void update_updatesStylist_true() throws ParseException {
+    Stylist newStylist = new Stylist("Abby", new SimpleDateFormat("MM/dd/yyyy").parse("08/16/2011"), "color");
+    newStylist.save();
+    newStylist.update("Pepper Jack", new SimpleDateFormat("MM/dd/yyyy").parse("10/08/2015"), "beard trim");
+    Date updatedDate = new SimpleDateFormat("MM/dd/yyyy").parse("10/08/2015");
+    assertEquals("Pepper Jack", newStylist.find(newStylist.getId()).getName());
+    assertEquals(updatedDate, newStylist.find(newStylist.getId()).getHireDate());
+    assertEquals("beard trim", newStylist.find(newStylist.getId()).getFavoriteService());
+
+  }
 }

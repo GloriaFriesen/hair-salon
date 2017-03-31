@@ -1,0 +1,19 @@
+<!--stylist-form.vtl-->
+<h1>Meet $stylist.getName().</h1>
+
+<h4>$stylist.getName() joined our salon $stylist.getHireDate(). Their favorite service (when pressured just to name one) is $stylist.getFavoriteService().</h4>
+
+#if ($stylist.getClients().size() >= 1)
+  <h2>Current Clients:</h2>
+  #foreach ($client in $stylist.getClients())
+    <a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a>
+  #end
+#else
+  <h2>$stylist.getName() does not currently have any assigned clients.</h2>
+#end
+
+<a href="/stylists/$stylist.getId()/clients/new"><button type="button" class="btn btn-success">Add Client</button></a>
+
+<form action="/stylists/$stylist.getId()/delete" method="post">
+  <button type="submit" class="btn btn-warning">Remove $stylist.getName()</button>
+</form>

@@ -34,7 +34,7 @@ public class App {
       String favorite_service = request.queryParams("favoriteService");
       Stylist newStylist = new Stylist(name, hire_date, favorite_service);
       newStylist.save();
-      // model.put("stylist", newStylist);
+      model.put("stylist", newStylist);
       String url = String.format("/stylists");
       response.redirect(url);
       return new ModelAndView(model, layout);

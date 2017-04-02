@@ -6,3 +6,18 @@
 #else
   <h3>No stylist</h3>
 #end
+
+<div class="well">
+  <h2>Update or Delete $client.getName().</h2>
+  <form action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" value="$client.getName()" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-success">Update $client.getName()</button>
+  </form>
+  <form action="/stylists/$client.getStylistId()/clients/$client.getId()/delete" method="post">
+    <button type="submit" class="btn btn-warning">Remove $client.getName()</button>
+  </form>
+</div>

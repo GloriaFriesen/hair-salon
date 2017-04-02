@@ -100,12 +100,12 @@ public class App {
     //delete client
     post("/stylists/:stylist_id/clients/:clients_id/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      Client newClient = Client.find(Integer.parseInt(request.params(":clients_id")));
+      Client newClient = Client.find(Integer.parseInt(request.params("clients_id")));
       Stylist stylist = Stylist.find(newClient.getStylistId());
       newClient.delete();
       model.put("client", newClient);
       model.put("stylist", stylist);
-      String url = String.format("/stylists/%d/clients", stylist.getId());
+      String url = String.format("/stylists/%d", stylist.getId());
       response.redirect(url);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

@@ -88,9 +88,14 @@ public class Stylist {
 
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM stylists WHERE id=:id";
-      con.createQuery(sql)
+      String sqlDeleteStylist = "DELETE FROM stylists WHERE id=:id";
+      con.createQuery(sqlDeleteStylist)
         .addParameter("id", id)
+        .executeUpdate();
+      String sqlUpdateClient = "UPDATE clients SET stylist_id=:stylist_id WHERE stylist_id=:id";
+      con.createQuery(sqlUpdateClient)
+        .addParameter("id", id)
+        .addParameter("stylist_id", 0)
         .executeUpdate();
     }
   }

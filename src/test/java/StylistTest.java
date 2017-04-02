@@ -87,9 +87,12 @@ public class StylistTest {
   @Test
   public void delete_deletesStylist_true() {
     Stylist newStylist = new Stylist("Abby", "08/16/2011", "color");
+    Client newClient = new Client("Tina", newStylist.getId());
     newStylist.save();
+    newClient.save();
     newStylist.delete();
     assertEquals(null, newStylist.find(newStylist.getId()));
+    assertEquals(0, newClient.getStylistId());
   }
 
   @Test

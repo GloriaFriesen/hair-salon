@@ -4,12 +4,23 @@
   <ul>
     <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a>
       <ul>
-        #foreach($client in $clients)
-          #if ($stylist.getId() == $client.getStylistId())
-            <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</li></a>
+        #if ($stylist.getClients().size() == 0)
+          <h3>No clients assigned to $stylist.getName()</h3>
+        #else
+          #foreach($client in $clients)
+            #if ($stylist.getId() == $client.getStylistId())
+              <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</li></a>
+            #end
           #end
         #end
       </ul>
     </li>
   </ul>
+#end
+
+<h3>Clients without an assigned Stylist:</h3>
+#foreach($client in $clients)
+  #if ($client.getStylistId() < 1)
+    <li><a href="/stylists/0/clients/$client.getId()">$client.getName()</li></a>
+  #end
 #end

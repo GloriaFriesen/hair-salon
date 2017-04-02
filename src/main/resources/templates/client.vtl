@@ -1,2 +1,8 @@
 <!--client.vtl-->
-<h1>View an individual client</h1>
+<h1>$client.getName()</h1>
+
+#if ($stylist.getId())
+  <h3>Currently assigned stylist: $stylist.getName()</h3>
+#else
+  <h3>No stylist</h3>
+#end

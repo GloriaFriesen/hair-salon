@@ -121,14 +121,13 @@ public class App {
     //update stylist
     post("/stylists/:stylist_id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
+      Stylist stylist = Stylist.find(Integer.parseInt(request.params("stylist_id")));
       String name = request.queryParams("name");
       String hire_date = request.queryParams("hire_date");
       String favorite_service = request.queryParams("favorite_service");
       stylist.update(name, hire_date, favorite_service);
       String url = String.format("/stylists/%d", stylist.getId());
       response.redirect(url);
-      model.put("stylist", stylist);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

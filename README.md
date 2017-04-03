@@ -8,17 +8,17 @@
 This Java web application allows the user to build and manage the stylists and clients at a hair salon.
 
 ## Setup/Installation Instructions
-* In your web browser of choice, go to: <http://github.com/GloriaFriesen/hair-salon>
-* Clone repository
+* In terminal, clone my repository:
+  * `$ git clone https://github.com/GloriaFriesen/hair-salon.git`
 * Connect to PSQL and run:
-  * #CREATE DATABASE hair_salon;
+  * `# CREATE DATABASE hair_salon;`
 * In the terminal, run:
-  * $psql hair_salon < hair_salon.sql
+  * `$ psql hair_salon < hair_salon.sql`
 * In PSQL, run:
-  * #CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
+  * `# CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;`
 * In the terminal:
   * Switch to hair-salon directory
-  * To run the program, use command $ gradle run
+  * To run the program, use command `$ gradle run`
 * In your browser:
   * Go to localhost:4567
 

@@ -8,24 +8,30 @@
 #end
 
 <div class="well">
-  <h2>Update or Delete $client.getName().</h2>
-  <form action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" value="$client.getName()" class="form-control">
-    </div>
+  #if ($stylists.size() > 0)
+    <h2>Update or Delete $client.getName().</h2>
+    <form action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" value="$client.getName()" class="form-control">
+      </div>
 
-    <label for="stylist_id">Select a stylist</label>
-    <select id='stylist_id' name='stylist_id' type='text'>
-      #foreach($stylist in $stylists)
-        <option value="$stylist.getId()">$stylist.getName()</option>
-      #end
-    </select>
+      <label for="stylist_id">Select a stylist</label>
+      <select id='stylist_id' name='stylist_id' type='text'>
+        #foreach($stylist in $stylists)
+          <option value="$stylist.getId()">$stylist.getName()</option>
+        #end
+      </select>
+      <button type="submit" class="btn btn-success">Update $client.getName()</button>
+    </form>
 
-    <button type="submit" class="btn btn-success">Update $client.getName()</button>
-  </form>
-  
-  <form action="/stylists/$client.getStylistId()/clients/$client.getId()/delete" method="post">
-    <button type="submit" class="btn btn-warning">Remove $client.getName()</button>
-  </form>
+    <form action="/stylists/$client.getStylistId()/clients/$client.getId()/delete" method="post">
+      <button type="submit" class="btn btn-warning">Remove $client.getName()</button>
+    </form>
+
+    #else
+      <h4>There are currently no stylists at this salon. Please add one in order to make changes to $client.getName().</h4>
+      <a href="/stylists/new"><button type="button" class="btn btn-success">Add Stylist</button></a>
+    #end
+
 </div>

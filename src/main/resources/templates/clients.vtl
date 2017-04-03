@@ -1,26 +1,34 @@
 <!--clients.vtl-->
-
-#foreach($stylist in $stylists)
-  <ul>
-    <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a>
-      <ul>
-        #if ($stylist.getClients().size() == 0)
-          <h3>No clients assigned to $stylist.getName()</h3>
-        #else
-          #foreach($client in $clients)
-            #if ($stylist.getId() == $client.getStylistId())
-              <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</li></a>
-            #end
-          #end
+<div class="panel panel-default">
+  #foreach($stylist in $stylists)
+  <div class="panel-heading">
+    <h3 class="panel-title"><a href="/stylists/$stylist.getId()">$stylist.getName()'s</a> Clients:</h3>
+  </div>
+  <div class="panel-body">
+    #if ($stylist.getClients().size() == 0)
+      <h3>No clients assigned to $stylist.getName()</h3>
+    #else
+      #foreach($client in $clients)
+        #if ($stylist.getId() == $client.getStylistId())
+          <p><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></p>
         #end
-      </ul>
-    </li>
-  </ul>
-#end
-
-<h3>Clients without an assigned Stylist:</h3>
-#foreach($client in $clients)
-  #if ($client.getStylistId() < 1)
-    <li><a href="/stylists/0/clients/$client.getId()">$client.getName()</li></a>
+      #end
+    #end
+  </div>
   #end
-#end
+</div>
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Clients without an assigned Stylist:</h3>
+  </div>
+  <div class="panel-body">
+    #foreach($client in $clients)
+      #if ($client.getStylistId() < 1)
+        <li><a href="/stylists/0/clients/$client.getId()">$client.getName()</li></a>
+      #end
+    #end
+  </div>
+</div>

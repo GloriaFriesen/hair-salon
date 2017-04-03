@@ -116,7 +116,7 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
       stylist.delete();
-      String url = String.format("/stylists");
+      String url = "/clients";
       response.redirect(url);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -141,7 +141,7 @@ public class App {
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
       client.update(request.queryParams("name"));
       client.updateStylist(Integer.parseInt(request.queryParams("stylist_id")));
-      String url = String.format("/clients");
+      String url = "/clients";
       response.redirect(url);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

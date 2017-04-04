@@ -7,6 +7,33 @@
     text-align: center;
 }
 
-.jumbotron {
-  text-align: center;
+.jumbotron, .panel > .panel-heading {
+  background-color: #6C7A89;
+  border-color: #6C7A89;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('/images/2.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+h2, label {
+  background-color: #456fb2;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+.btn {
+  background-color: #6C7A89;
+  border-color: #6C7A89;
+  color: white;
+  display: block;
+  margin-top: 5px;
+}
+
+input {
+  background: #6C7A89;
 }

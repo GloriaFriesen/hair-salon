@@ -1,12 +1,12 @@
 <!--stylists.vtl-->
 
 #if ($stylists.size() >= 1)
-  <h1>Current Stylists</h1>
+  <h2>Current Stylists</h2>
   #foreach ($stylist in $stylists)
     <h3><a href="/stylists/$stylist.getId()">$stylist.getName()</a></h3>
   #end
 #else
-  <h1>No stylists.</h1>
+  <h2>No stylists.</h2>
 #end
 
-<a href="/stylists/new"><button type="button" class="btn btn-success">Add Stylist</button></a>
+<a href="/stylists/new"><button type="button" class="btn">Add Stylist</button></a>

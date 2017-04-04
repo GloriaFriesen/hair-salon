@@ -10,7 +10,7 @@
       #else
         #foreach($client in $clients)
           #if ($stylist.getId() == $client.getStylistId())
-            <p><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></p>
+            <h3><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></h3>
           #end
         #end
       #end

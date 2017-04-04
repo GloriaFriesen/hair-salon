@@ -1,6 +1,6 @@
 <!--stylist-form.vtl-->
 <div class="well">
-  <h1>Meet $stylist.getName().</h1>
+  <h2>Meet $stylist.getName().</h2>
 
   <h4>$stylist.getName() joined our salon $stylist.getHireDate(). Their favorite service (when pressured just to name one) is $stylist.getFavoriteService().</h4>
 </div>
@@ -15,7 +15,7 @@
     <h2>$stylist.getName() does not currently have any assigned clients.</h2>
   #end
   <div>
-    <a href="/stylists/$stylist.getId()/clients/new"><button type="button" class="btn btn-success">Add Client</button></a>
+    <a href="/stylists/$stylist.getId()/clients/new"><button type="button" class="btn">Add Client</button></a>
   </div>
 </div>
 
@@ -34,9 +34,9 @@
       <label for="favorite_service">Favorite Service</label>
       <input id="favorite_service" name="favorite_service" type="text" value="$stylist.getFavoriteService()" class="form-control">
     </div>
-    <button type="submit" class="btn btn-success">Update $stylist.getName()</button>
+    <button type="submit" class="btn">Update $stylist.getName()</button>
   </form>
   <form action="/stylists/$stylist.getId()/delete" method="post">
-    <button type="submit" class="btn btn-warning">Remove $stylist.getName()</button>
+    <button type="submit" class="btn">Remove $stylist.getName()</button>
   </form>
 </div>

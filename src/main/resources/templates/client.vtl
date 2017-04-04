@@ -1,10 +1,10 @@
 <!--client.vtl-->
-<h1>$client.getName()</h1>
+<h2>$client.getName()</h2>
 
 #if ($stylist.getId())
-  <h3>Currently assigned stylist: $stylist.getName()</h3>
+  <h2>Currently assigned stylist: $stylist.getName()</h2>
 #else
-  <h3>No stylist</h3>
+  <h2>No stylist</h2>
 #end
 
 <div class="well">
@@ -22,16 +22,16 @@
           <option value="$stylist.getId()">$stylist.getName()</option>
         #end
       </select>
-      <button type="submit" class="btn btn-success">Update $client.getName()</button>
+      <button type="submit" class="btn">Update $client.getName()</button>
     </form>
 
     <form action="/stylists/$client.getStylistId()/clients/$client.getId()/delete" method="post">
-      <button type="submit" class="btn btn-warning">Remove $client.getName()</button>
+      <button type="submit" class="btn">Remove $client.getName()</button>
     </form>
 
     #else
       <h4>There are currently no stylists at this salon. Please add one in order to make changes to $client.getName().</h4>
-      <a href="/stylists/new"><button type="button" class="btn btn-success">Add Stylist</button></a>
+      <a href="/stylists/new"><button type="button" class="btn">Add Stylist</button></a>
     #end
 
 </div>
